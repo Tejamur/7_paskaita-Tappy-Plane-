@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
+    public List<GameObject> obstaclePrefabs;
     public float cooldown = 3;
 
     private float lastSpawnTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,7 +16,8 @@ public class ObstacleSpawner : MonoBehaviour
         if(Time.time - lastSpawnTime > cooldown)
         {
             lastSpawnTime = Time.time;
-            Instantiate(obstaclePrefab);
+            GameObject obstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)];
+            Instantiate(obstacle);
         }
     }
 }
