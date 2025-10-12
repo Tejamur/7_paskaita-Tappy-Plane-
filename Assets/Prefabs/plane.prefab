@@ -163,6 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
+  scoreText: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: e4a55cede39f1a4428b820b10f9f3974, type: 3}
+  deathSound: {fileID: 8300000, guid: e84a879276d6348429a4bd24d422cb77, type: 3}
 --- !u!95 &8467814783517602613
 Animator:
   serializedVersion: 5

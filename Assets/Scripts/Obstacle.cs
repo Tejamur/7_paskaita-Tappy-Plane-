@@ -10,11 +10,14 @@ public class Obstacle : MonoBehaviour
     public float xOffset = 1;
     public float yOffset = 3;
 
-    
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+
         Vector3 offset = new();
         offset.x += Random.Range(-xOffset, xOffset);
         offset.y += Random.Range(-yOffset,yOffset);
@@ -30,6 +33,15 @@ public class Obstacle : MonoBehaviour
         if(transform.position.x < -10)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.Play();
         }
     }
 }
